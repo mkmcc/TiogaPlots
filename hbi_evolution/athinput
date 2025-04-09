@@ -1,0 +1,62 @@
+# Input file for the ATHENA problem hbi_simple.c
+#
+# Time-stamp: <2011-03-01 18:40:31 (mkmcc)>
+#
+#
+
+<job>
+problem_id 	= hbi		# Problem ID;
+maxout		= 2		# optional
+num_domains	= 1
+
+
+<output1>
+out_fmt		= vtk
+dt		= 1.414
+
+<output2>
+out_fmt		= hst
+dt		= 1.0
+
+<time>
+cour_no 	= 0.9		# The CFL number
+nlim		= 100000	# Cycle limit
+tlim		= 70.7		# Time limit
+
+
+<domain1>
+level		= 0
+
+# Size of the computational grid
+# --------------------------------------------------------------------
+Nx1		= 64		# Number of zones in X1-direction
+x1min		= -0.05
+x1max		=  0.05	
+bc_ix1		= 4		# reflecting boundary condition
+bc_ox1		= 4		# ''
+
+Nx2		= 64		# Number of zones in the X2-direction
+x2min		= 0
+x2max		= 0.1
+
+Nx3		= 1
+x3min		= -0.5
+x3max		=  0.5
+
+# Number of subgrids into which we split the problem
+# --------------------------------------------------------------------
+NGrid_x1	= 4
+NGrid_x2	= 4
+NGrid_x3	= 1
+
+
+
+<problem>
+# Basic atmosphere parameters
+# --------------------------------------------------------------------
+gamma 		= 1.6666666666 	# gamma = C_p/C_v
+
+kappa_aniso     = 0.02
+
+
+<par_end>
